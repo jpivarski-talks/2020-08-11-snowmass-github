@@ -56,9 +56,83 @@
 
 % START START START START START START START START START START START START START
 
-\begin{frame}{First slide}
+\begin{frame}{Goal: find out how physicists are using software for data analysis}
+\Large
+
 \vspace{0.5 cm}
-HERE
+Workflow from detector $\to$ reconstruction $\to$ AODs is understood.
+
+\vspace{0.5 cm}
+Workflow from AODs $\to$ analysis $\to$ proposed papers is not.
+
+\vspace{0.5 cm}
+\begin{itemize}
+\item Distributed collaboration: who is even doing the work?
+\item Awareness of and response to surveys is uneven.
+\item Can we get a more direct method?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Method: look at their code!}
+\Large
+
+\vspace{0.5 cm}
+GitHub API gives us programmatic statistics (JSON) on users and their repositories.
+
+\vspace{0.5 cm}
+But first we have to identify ``physicists.''
+\large
+
+\vspace{0.5 cm}
+\begin{itemize}
+\item CMSSW has been on GitHub since 2013; fork-and-pull request is how CMS physicists contribute.
+\item Assumption: high correlation between forking CMSSW and CMS physicists.
+\item The same users do their own work in non-fork repositories.
+\item Why CMS/GitHub? Until recently, free GitHub repos had to be public, and only public repos can be analyzed. In GitLab, many repos are private.
+\end{itemize}
+
+\vspace{0.25 cm}
+Large dataset: \textcolor{darkorange}{\bf 3100 users} with \textcolor{darkorange}{\bf 19\,400 non-fork repos} spanning \textcolor{darkorange}{\bf 7 years}.
+\end{frame}
+
+\begin{frame}{Plot \#1: language choice}
+\vspace{0.25 cm}
+Using GitHub's algorithm for determining a repo's programming language.
+
+\vspace{0.15 cm}
+\includegraphics[width=\linewidth]{01-github-cmssw-language.pdf}
+\end{frame}
+
+\begin{frame}{Plot \#2: language choice by user}
+\vspace{0.25 cm}
+Same thing, but with average number of repos per user instead of total repos.
+
+\vspace{0.15 cm}
+\includegraphics[width=\linewidth]{02-github-cmssw-language-byuser.pdf}
+\end{frame}
+
+\begin{frame}{Plot \#3: search for package imports}
+\vspace{0.25 cm}
+Number of repos that match a search string to identify ROOT, PyROOT, Uproot, etc.
+
+\vspace{0.15 cm}
+\includegraphics[width=\linewidth]{03-github-root-python.pdf}
+\end{frame}
+
+\begin{frame}{Plot \#4: what machine learning packages do they use?}
+\vspace{0.25 cm}
+Same technique. Dominance of Scikit-Learn (over TensorFlow and Torch) is surprising.
+
+\vspace{0.15 cm}
+\includegraphics[width=\linewidth]{04-github-machine-learning.pdf}
+\end{frame}
+
+\begin{frame}{Plot \#5: Did machine learning drive Python adoption?}
+\vspace{0.25 cm}
+Not really. Basic analysis tools (NumPy, Matplotlib, Pandas) outweigh Pythonic ML.
+
+\vspace{0.15 cm}
+\includegraphics[width=\linewidth]{05-github-anyroot-python-machinelearning-uproot.pdf}
 \end{frame}
 
 \end{document}
