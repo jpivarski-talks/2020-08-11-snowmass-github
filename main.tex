@@ -56,42 +56,47 @@
 
 % START START START START START START START START START START START START START
 
-\begin{frame}{Goal: find out how physicists are using software for data analysis}
+\begin{frame}{{\bf Goal:} find out how physicists are using software for data analysis}
 \Large
 
-\vspace{0.5 cm}
-Workflow from detector $\to$ reconstruction $\to$ AODs is understood.
+%% \vspace{0.5 cm}
+%% Workflow from detector $\to$ reconstruction $\to$ AODs is understood.
+
+%% \vspace{0.5 cm}
+%% Workflow from AODs $\to$ analysis $\to$ proposed papers is not.
 
 \vspace{0.5 cm}
-Workflow from AODs $\to$ analysis $\to$ proposed papers is not.
-
-\vspace{0.5 cm}
-\begin{itemize}
-\item Distributed collaboration: who is even doing the work?
-\item Awareness of and response to surveys is uneven.
+\begin{itemize}\setlength{\itemsep}{0.75 cm}
+\item Surveys are great, except when they're not: response rate \mbox{can be} correlated with the questions.
+\item Distributed collaborations: how do we know the survey questions have reached everyone we want to ask?
 \item Can we get a more direct method?
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Method: look at their code!}
+\begin{frame}{Direct method: look at their code!}
 \Large
 
-\vspace{0.5 cm}
-GitHub API gives us programmatic statistics (URL $\to$ JSON) on users and their repositories.
+\vspace{0.6 cm}
+GitHub API lets us query users and repositories (URL $\to$ JSON).
 
-\vspace{0.5 cm}
-But first we have to identify ``physicists.''
+\vspace{0.6 cm}
+\fcolorbox{lightgray}{white}{\begin{minipage}{0.98\linewidth}
+\textcolor{darkblue}{Can we identify ``physicist'' users?}
 \large
 
-\vspace{0.5 cm}
+\vspace{0.3 cm}
 \begin{itemize}
-\item CMSSW has been on GitHub since 2013; fork-and-pull request is how CMS physicists contribute.
-\item Assumption: high correlation between forking CMSSW and CMS physicists.
-\item The same users do their own work in non-fork repositories.
-\item Why CMS/GitHub? Until recently, all (free) GitHub repos were public, and only public repos can be analyzed. In GitLab, many repos are private.
+\item CMSSW has been on GitHub since 2013.
+\item Assumption: most users who fork CMSSW are CMS physicists.
+\item Then examine their \textcolor{darkorange}{\bf non-fork} repositories.
 \end{itemize}
+\end{minipage}}
+\large
 
-\vspace{0.25 cm}
+\vspace{0.6 cm}
+\textcolor{darkblue}{Why GitHub/CMS?} Until recently, all (free) GitHub repos were public, making them searchable by the API.
+
+\vspace{0.6 cm}
 Large dataset: \textcolor{darkorange}{\bf 3100 users} with \textcolor{darkorange}{\bf 19\,400 non-fork repos} spanning \textcolor{darkorange}{\bf 7 years}.
 \end{frame}
 
